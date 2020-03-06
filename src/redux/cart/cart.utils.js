@@ -13,7 +13,7 @@ export const addItemToCart = (cartItems, newItem) => {
 export const decrementItemInCart = (cartItems, itemToDecrement) => {
     const existingCartItem = cartItems.find(item => item.id === itemToDecrement.id);
 
-    if (existingCartItem.quantity == 1) {
+    if (existingCartItem.quantity === 1) {
         return cartItems.filter(item => item.id !== itemToDecrement.id);
     }
 
