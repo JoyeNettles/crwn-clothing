@@ -21,23 +21,23 @@ export class App extends React.Component {
     componentDidMount() {
         const {setCurrentUserInState} = this.props;
 
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-            if (userAuth) {
-                const userRef = await createUserProfileDocument(userAuth);
-                userRef.onSnapshot(snapshot => {
-                    setCurrentUserInState({
-                        id: snapshot.id,
-                        ...snapshot.data()
-                    });
-                })
-            }
-
-            setCurrentUserInState(userAuth);
-        })
+        // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+        //     if (userAuth) {
+        //         const userRef = await createUserProfileDocument(userAuth);
+        //         userRef.onSnapshot(snapshot => {
+        //             setCurrentUserInState({
+        //                 id: snapshot.id,
+        //                 ...snapshot.data()
+        //             });
+        //         })
+        //     }
+        //
+        //     setCurrentUserInState(userAuth);
+        // })
     }
 
     componentWillUnmount() {
-        this.unsubscribeFromAuth();
+        // this.unsubscribeFromAuth();
     }
 
     render() {
